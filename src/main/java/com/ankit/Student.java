@@ -1,17 +1,19 @@
 package com.ankit;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
-@Table
 public class Student {
 
     @Id
     private int rollNo;
     private int age;
     private String sName;
+
+    @OneToMany
+    private List<Laptop> laptops;
 
     public int getRollNo() {
         return rollNo;
@@ -37,12 +39,21 @@ public class Student {
         this.sName = sName;
     }
 
+    public List<Laptop> getLaptops() {
+        return laptops;
+    }
+
+    public void setLaptops(List<Laptop> laptops) {
+        this.laptops = laptops;
+    }
+
     @Override
     public String toString() {
         return "Student{" +
                 "rollNo=" + rollNo +
                 ", age=" + age +
                 ", sName='" + sName + '\'' +
+                ", laptop=" + laptops +
                 '}';
     }
 }
