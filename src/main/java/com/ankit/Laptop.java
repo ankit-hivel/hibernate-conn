@@ -3,6 +3,7 @@ package com.ankit;
 import jakarta.persistence.Embeddable;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Laptop {
@@ -11,6 +12,9 @@ public class Laptop {
 
     private String lname;
     private int ram;
+
+    @ManyToOne
+    private Student sid;
 
     public String getLname() {
         return lname;
@@ -34,6 +38,14 @@ public class Laptop {
 
     public void setRam(int ram) {
         this.ram = ram;
+    }
+
+    public Student getSid() {
+        return sid;
+    }
+
+    public void setSid(Student sid) {
+        this.sid = sid;
     }
 
     @Override

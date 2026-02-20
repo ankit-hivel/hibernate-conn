@@ -12,7 +12,7 @@ public class Student {
     private int age;
     private String sName;
 
-    @OneToMany
+    @OneToMany(mappedBy = "sid", fetch = FetchType.EAGER)
     private List<Laptop> laptops;
 
     public int getRollNo() {

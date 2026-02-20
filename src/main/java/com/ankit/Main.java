@@ -25,7 +25,10 @@ public class Main {
         s1.setAge(21);
         s1.setLaptops(List.of(l1, l2));
 
-//        Student s2 = null;
+        l1.setSid(s1);
+        l2.setSid(s1);
+
+        Student s2 = null;
 
         Configuration cfg = new Configuration();
         cfg.addAnnotatedClass(com.ankit.Student.class).addAnnotatedClass(com.ankit.Laptop.class);
@@ -38,8 +41,8 @@ public class Main {
         session.persist(l2);
         session.persist(s1);
         tx.commit();
-//        session.detach(s1);
-//        System.out.println("got results:" + s2);
+        s2 = session.find(Student.class, 5);
+        System.out.println("got results:" + s2);
 
         session.close();
         sf.close();
